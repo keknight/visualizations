@@ -21,8 +21,8 @@ allLabs = False
 indLabs = True
 
 #Change filename and path according to what spreadsheet is titled + filepath
-filename = 'Neutron_Science_Master_viz.xlsx'
-path = 'C:\\Users\\vkk\\Desktop\\new_materials_backup\\'
+filename = 'isos.xlsx'
+path = 'C:\\Users\\vkk\\Desktop\\JIBS\\'
 
 def makeGraph(data, labData):
 
@@ -81,25 +81,25 @@ def makeGraph(data, labData):
 
 	
 if withChina:
-	data = pd.read_excel(path + filename, sheetname=2, skiprows=3, parse_cols='G:K', index_col=False)
+	data = pd.read_excel(path + filename, sheetname=2, skiprows=3, parse_cols='G:K', index_col=False).dropna()
 
 if noChina: 
-	data = pd.read_excel(path + filename, sheetname=3, skiprows=3, parse_cols='A:E', index_col=False)
+	data = pd.read_excel(path + filename, sheetname=3, skiprows=3, parse_cols='G:K', index_col=False).dropna()
 	
 if allGovernment:
-	data = pd.read_excel(path + filename, sheetname=2, skiprows=2, parse_cols='G:K', index_col=False)
+	data = pd.read_excel(path + filename, sheetname=2, skiprows=2, parse_cols='G:K', index_col=False).dropna()
 	
 if noChinaGovernment:
-	data = pd.read_excel(path + filename, sheetname=3, skiprows=3, parse_cols='G:K', index_col=False)
+	data = pd.read_excel(path + filename, sheetname=3, skiprows=3, parse_cols='G:K', index_col=False).dropna()
 	
 if specialRequest:
-	data = pd.read_excel(path + filename, sheetname=6, skiprows=3, parse_cols='A:E', index_col=False)
+	data = pd.read_excel(path + filename, sheetname=6, skiprows=3, parse_cols='A:E', index_col=False).dropna()
 	
 if indLabs:
-	labData = pd.read_excel(path + filename, sheetname=4, skiprows=3, parse_cols='B:F', index_col=False)
+	labData = pd.read_excel(path + filename, sheetname=4, skiprows=3, parse_cols='B:F', index_col=False).dropna()
 
 if allLabs:
-	labData = pd.read_excel(path + filename, sheetname=5, skiprows=3, parse_cols='A:D', index_col=False)
+	labData = pd.read_excel(path + filename, sheetname=5, skiprows=3, parse_cols='A:D', index_col=False).dropna()
 
 makeGraph(data, labData)
 
